@@ -1,0 +1,15 @@
+{
+    "name": "userfrosting/sprinkle-AdminLTE",
+    "type": "sprinkle",
+    "description": "AdminLTE template Sprinkle for UserFrosting.",
+    "keywords": ["AdminLTE"],
+    "homepage": "https://almsaeedstudio.com/preview",
+    "license" : "MIT",
+    "authors" : [
+        {
+            "name": "Louis Charette",
+            "homepage": "https://github.com/lcharette"
+        }
+    ],
+    "version": "2.3.6"
+}

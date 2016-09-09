@@ -1,0 +1,113 @@
+{% extends "layouts/AdminLTE_dashboard.html.twig" %}
+
+{# Overrides blocks in head of base template #}
+{% block page_title %}Account Settings{% endblock %}
+{% block page_description %}Update your account settings, including email, display name, and password.{% endblock %}
+
+{% block body_matter %}
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        Account Settings
+        <small></small>
+      </h1>
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Account Settings</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="row">
+            <div class="col-lg-6">
+              <div class="box box-primary">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Account Settings</h3>
+                </div>
+                <!-- /.box-header -->
+                <!-- form start -->
+                <form class="form-horizontal" id="account-settings" role="form" action="{{site.uri.public}}/account/settings" method="post">
+                  <!-- Prevent browsers from trying to autofill the password field.  See http://stackoverflow.com/a/23234498/2970321 -->
+                  <input type="text" style="display:none">
+                  <input type="password" style="display:none">
+                  <div class="box-body">
+                    {% if checkAccess('update_account_setting', {('user'): current_user, ('property'): 'email'}) %}
+                    <div class="form-group">
+                        <label for="input-email" class="col-sm-4 control-label">Email Address</label>
+                        <div class="col-sm-8">
+                            <input type="text" id="input-email" class="form-control" name="email" value="{{current_user.email}}" placeholder="Email address">
+                            <p class="help-block">Your email address.</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if checkAccess('update_account_setting', {('user'): current_user, ('property'): 'name'}) %}
+                    <div class="form-group">
+                        <label for="input-first-name" class="col-sm-4 control-label">Name</label>
+                        <div class="col-sm-4">
+                            <input type="text" id="input-first-name" class="form-control" name="first_name" value="{{current_user.first_name}}" placeholder="First">
+                        </div>
+                        <div class="col-sm-4">
+                            <input type="text" id="input-last-name" class="form-control" name="last_name" value="{{current_user.last_name}}" placeholder="Last">
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if checkAccess('update_account_setting', {('user'): current_user, ('property'): 'locale'}) %}
+                    <div class="form-group">
+                        <label for="input-locale" class="col-sm-4 control-label">Locale</label>
+                        <div class="col-sm-8">
+                            <select id="input-locale" class="form-control select2" name="locale">
+                                {% for option, label in locales %}
+                                <option value="{{option}}" {% if (option == current_user.locale) %}selected{% endif %}>{{label}}</option>
+                                {% endfor %}
+                            </select>
+                            <p class="help-block">The language and locale to use for your account.</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    {% if checkAccess('update_account_setting', {('user'): current_user, ('property'): 'password'}) %}
+                    <div class="form-group">
+                        <label for="input-password" class="col-sm-4 control-label">New Password</label>
+                        <div class="col-sm-8">
+                            <input type="password" id="input-password" class="form-control" name="password" placeholder="12-100 characters">
+                            <p class="help-block">Optional.</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-passwordc" class="col-sm-4 control-label">Confirm New Password</label>
+                        <div class="col-sm-8">
+                            <input type="password" id="input-passwordc" class="form-control" name="passwordc" placeholder="Re-enter your new password">
+                            <p class="help-block">Required only if selecting a new password.</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    <div class="form-group">
+                        <label for="input-passwordcheck" class="col-sm-4 control-label">Current Password</label>
+                        <div class="col-sm-8">
+                            <input type="password" id="input-passwordcheck" class="form-control" name="passwordcheck" placeholder="You must confirm your current password to make changes.">
+                        </div>
+                    </div>
+                  </div>
+                  <!-- /.box-body -->
+                  <div class="box-footer">
+                    <button type="submit" class="btn btn-info pull-right">Update Settings</button>
+                  </div>
+                  <!-- /.box-footer -->
+                </form>
+              </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+{% endblock %}
+{% block scripts_page %}
+    <!-- Include validation rules -->
+    <script>
+    {% include "components/validators.js.twig" %}
+    </script>
+
+    <!-- Include page-specific JS -->
+    {{ assets.js('js/pages/account-settings') | raw }}
+{% endblock %}
