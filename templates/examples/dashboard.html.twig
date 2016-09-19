@@ -844,5 +844,6 @@
 {% endblock %}
 
 {% block scripts_page %}
-
+    <!-- Include page-specific JS -->
+    {{ assets.js('js/AdminLTE-demo') | raw }}
 {% endblock %}
