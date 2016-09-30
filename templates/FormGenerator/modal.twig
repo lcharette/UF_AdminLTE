@@ -10,11 +10,7 @@
             <h4 class="modal-title">{{translate(box_title)}}</h4>
           </div>
           <div class="modal-body">
-    		    <div class="alert alert-danger hidden" id="{{box_id}}_alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <h4><i class="icon fa fa-ban"></i> {{translate('ERROR')}}</h4>
-                    <span></span>
-                </div>
+    		    <div class="alert alert-danger" id="{{box_id}}_alert" style="display: none;"></div>
     		    <div class="row">
     		    	<div class="col-sm-10">
     				    {% include 'FormGenerator/FormGenerator.twig' %}

@@ -93,6 +93,16 @@
                 {# Override this block in a child layout template or page template to specify or override page-level scripts. #}
                 {% block scripts_page %}
                 {% endblock %}
+
+                {# Override this block to alter UfAlerts. #}
+                {% block scripts_UFAlert %}
+                <script>
+                    // Fetch and render any alerts on the login panel
+                    // This is needed, for example, when we are redirected from another page.
+                    $("#alerts-main").ufAlerts();
+                    $("#alerts-main").ufAlerts('fetch').ufAlerts('render');
+                </script>
+                {% endblock %}
             {% endblock %}
 
         </body>
