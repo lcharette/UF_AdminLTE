@@ -16,7 +16,7 @@
                     <span></span>
                 </div>
     		    <div class="row">
-    		    	<div class="col-sm-8">
+    		    	<div class="col-sm-10">
     				    {% include 'FormGenerator/FormGenerator.twig' %}
     		    	</div>
     		    </div>
@@ -49,4 +49,30 @@
   </div>
   <!-- /.modal-dialog -->
 </div>
-{% block page_scripts %}{% endblock %}
+
+<!-- Fix select2 with this theme -->
+<style>
+    .select2-selection--single { height: 34px !important; }
+    .select2-container {
+        width: 100% !important;
+        padding: 0;
+    }
+</style>
+{% block page_scripts %}
+
+    <!-- Include page-specific JS -->
+    {{ assets.js('js/AdminLTE-login') | raw }}
+
+    <script>
+        $(function() {
+            $('#{{box_id}}').iCheck({
+              checkboxClass: 'icheckbox_square-blue',
+              radioClass: 'iradio_square-blue',
+              increaseArea: '20%' // optional
+            });
+            $('#{{box_id}}').find('select').select2({
+              minimumResultsForSearch: Infinity
+            });
+        });
+    </script>
+{% endblock %}
