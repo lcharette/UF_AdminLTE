@@ -37,7 +37,7 @@ Edit UserFrosting `public/index.php` file and add `AdminLTE` to the sprinkle lis
             }
         }
     },
-    "css/AdminLTE-login": {
+    "css/iCheck": {
         "styles": [
             "vendor/iCheck/square/blue.css"
         ],
@@ -82,7 +82,7 @@ Edit UserFrosting `public/index.php` file and add `AdminLTE` to the sprinkle lis
             }
         }
     },
-    "js/AdminLTE-login": {
+    "js/iCheck": {
         "scripts": [
             "vendor/iCheck/icheck.min.js"
         ],
