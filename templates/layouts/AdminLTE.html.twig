@@ -30,10 +30,12 @@
                 {% endblock %}
 
                 {# Override this block in a child layout template or page template to specify or override stylesheets for groups of similar pages. #}
+                <!-- Page group CSS  -->
                 {% block stylesheets_page_group %}
                 {% endblock %}
 
                 {# Override this block in a child layout template or page template to specify or override page-level stylesheets. #}
+                <!-- Page CSS  -->
                 {% block stylesheets_page %}
                 {% endblock %}
             {% endblock %}
@@ -90,15 +92,18 @@
                 {% endblock %}
 
                 {# Override this block in a child layout template or page template to specify or override scripts for groups of similar pages. #}
+                <!-- Page Group Scripts -->
                 {% block scripts_page_group %}
                 {% endblock %}
 
                 {# Override this block in a child layout template or page template to specify or override page-level scripts. #}
+                <!-- Page Scripts -->
                 {% block scripts_page %}
                 {% endblock %}
 
                 {# Override this block to alter UfAlerts. #}
                 {% block scripts_UFAlert %}
+                <!-- UFAlert -->
                 <script>
                     // Fetch and render any alerts on the login panel
                     // This is needed, for example, when we are redirected from another page.

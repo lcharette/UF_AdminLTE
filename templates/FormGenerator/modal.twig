@@ -46,33 +46,13 @@
   <!-- /.modal-dialog -->
 </div>
 
-{% block page_styles %}
-    {{ assets.css('css/iCheck') | raw }}
-    <!-- Fix select2 with this theme -->
-    <style>
-        .select2-selection--single { height: 34px !important; }
-        .select2-container {
-            width: 100% !important;
-            padding: 0;
-        }
-    </style>
+{% use 'AdminLTE/iCheck.twig' %}
+{% use 'AdminLTE/select2.twig' %}
+
+{% block stylesheets_page %}
+    {{ parent() }}
 {% endblock %}
 
-{% block page_scripts %}
-
-    <!-- Include page-specific JS -->
-    {{ assets.js('js/iCheck') | raw }}
-
-    <script>
-        $(function() {
-            $('#{{box_id}}').iCheck({
-              checkboxClass: 'icheckbox_square-blue',
-              radioClass: 'iradio_square-blue',
-              increaseArea: '20%' // optional
-            });
-            $('#{{box_id}}').find('select').select2({
-              minimumResultsForSearch: Infinity
-            });
-        });
-    </script>
+{% block scripts_page %}
+    {{ parent() }}
 {% endblock %}
