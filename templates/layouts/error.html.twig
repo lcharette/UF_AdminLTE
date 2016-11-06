@@ -12,7 +12,7 @@
               <br /><h3>{% block heading %}<i class="fa fa-warning text-red"></i> {{ translate('ERROR.ENCOUNTERED') }}{% endblock %}</h3>
 
               {% block content %}
-                  {% if messages %}<p>{{ translate('ERROR.DETAIL') }}:</p>{% endif %}
+                  {% if messages %}<p>{{ translate('ERROR.DETAIL') }}</p>{% endif %}
                   {% for message in messages %}
                     <div class="alert alert-danger">{{ translate(message.message, message.parameters) }}</div>
                   {% endfor %}
