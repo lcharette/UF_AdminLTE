@@ -82,6 +82,7 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
+    {% block content_header %}
     <section class="content-header">
       <h1>
         {{ block('page_title') }}<br />
@@ -92,6 +93,7 @@
       {% endblock %}
       <div id="alerts-main"></div>
     </section>
+    {% endblock %}
     {% block body_matter %}{% endblock %}
   </div>
   <!-- /.content-wrapper -->
