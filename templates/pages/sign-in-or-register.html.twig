@@ -1,9 +1,9 @@
 {% extends "layouts/AdminLTE.html.twig" %}
 
 {# Overrides blocks in head of base template #}
-{% block page_title %}{{translate('ACCOUNT.PAGE.LOGIN.TITLE')}}{% endblock %}
+{% block page_title %}{{translate('SIGNIN')}}{% endblock %}
 
-{% block page_description %}{{translate('ACCOUNT.PAGE.LOGIN.DESCRIPTION', {'site_name': site.title })}}{% endblock %}
+{% block page_description %}{{translate('LOGIN.DESCRIPTION', {'site_name': site.title })}}{% endblock %}
 
 {% block stylesheets_page_group %}
     <!-- Page-group-specific CSS asset bundle -->
@@ -21,7 +21,7 @@
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
-    <p class="login-box-msg">{{translate('ACCOUNT.PAGE.LOGIN.TITLE')}}</p>
+    <p class="login-box-msg">{{translate('SIGNIN')}}</p>
 
     <div id="alerts-login"></div>
 
@@ -39,21 +39,21 @@
         <div class="col-xs-8">
           <div class="checkbox icheck">
             <label>
-              <input type="checkbox" name="rememberme"> {{translate('ACCOUNT.REMEMBER_ME')}}
+              <input type="checkbox" name="rememberme"> {{translate('REMEMBER_ME')}}
             </label>
           </div>
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat">{{translate('ACCOUNT.LOGIN')}}</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat">{{translate('LOGIN')}}</button>
         </div>
         <!-- /.col -->
       </div>
     </form>
 
-    <a href="{{site.uri.public}}/account/forgot-password">{{translate('ACCOUNT.PASSWORD_FORGET')}}</a><br>
-    <a href="{{site.uri.public}}/account/resend-verification">{{translate('ACCOUNT.ACTION_SEND_AGAIN')}}</a><br>
-    <a href="register.html" class="text-center">{{translate('ACCOUNT.REGISTER')}}</a>
+    <a href="{{site.uri.public}}/account/forgot-password">{{translate('PASSWORD.FORGET')}}</a><br>
+    <a href="{{site.uri.public}}/account/resend-verification">{{translate('ACCOUNT.VERIFICATION.RESEND')}}</a><br>
+    <a href="register.html" class="text-center">{{translate('REGISTER')}}</a>
 
   </div>
   <!-- /.login-box-body -->
