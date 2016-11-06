@@ -9,14 +9,14 @@
             {% block headline %}<h2 class="headline text-red"><i class="fa fa-terminal" aria-hidden="true"></i></h2>{% endblock %}
 
             <div class="error-content">
-              <br /><h3>{% block heading %}<i class="fa fa-warning text-red"></i> Uhhh...something happened.  We don't know what.{% endblock %}</h3>
+              <br /><h3>{% block heading %}<i class="fa fa-warning text-red"></i> {{ translate('ERROR.ENCOUNTERED') }}{% endblock %}</h3>
 
               {% block content %}
-                  {% if messages %}<p>Here's what we got:</p>{% endif %}
+                  {% if messages %}<p>{{ translate('ERROR.DETAIL') }}:</p>{% endif %}
                   {% for message in messages %}
                     <div class="alert alert-danger">{{ translate(message.message, message.parameters) }}</div>
                   {% endfor %}
-                  <p class="lead">Click <a href="{{site.uri.public}}">here</a> to return to the front page.</p>
+                  <p class="lead">{{ translate('ERROR.RETURN', {url : site.uri.public})|raw }}</p>
               {% endblock %}
             </div>
             <!-- /.error-content -->

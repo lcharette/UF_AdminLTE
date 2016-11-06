@@ -1,16 +1,16 @@
 {% extends "layouts/error.html.twig" %}
 
-{% block page_title %}Error 404: Page not found{% endblock %}
+{% block page_title %}{{ translate('ERROR.404.TITLE') }}{% endblock %}
 
-{% block page_description %}We can't seem to find what you're looking for.{% endblock %}
+{% block page_description %}{{ translate('ERROR.404.DESCRIPTION') }}{% endblock %}
 
 {% block headline %}<h2 class="headline text-yellow">404</h2>{% endblock %}
 
-{% block heading %}<i class="fa fa-warning text-yellow"></i> We tried to find your page...{% endblock %}
+{% block heading %}<i class="fa fa-warning text-yellow"></i> {{ translate('ERROR.404.DETAIL') }}{% endblock %}
 
 {% block content %}
     <p>
-        We could not find the page you were looking for.
-        Click <a href="{{site.uri.public}}">here</a> to return to the front page.
+        {{ translate('ERROR.404.EXPLAIN') }}
+        {{ translate('ERROR.404.RETURN', {url: site.uri.public})|raw }}
     </p>
 {% endblock %}

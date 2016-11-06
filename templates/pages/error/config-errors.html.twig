@@ -1,13 +1,13 @@
 {% extends "layouts/error.html.twig" %}
 
-{% block page_title %}UserFrosting Configuration Issue!{% endblock %}
+{% block page_title %}{{ translate('ERROR.CONFIG.TITLE') }}{% endblock %}
 
-{% block page_description %}Some UserFrosting configuration requirements have not been met.{% endblock %}
+{% block page_description %}{{ translate('ERROR.CONFIG.DESCRIPTION') }}{% endblock %}
 
-{% block heading %}<i class="fa fa-warning text-yellow"></i> Something's not right here...{% endblock %}
+{% block heading %}<i class="fa fa-warning text-yellow"></i> {{ translate('ERROR.CONFIG.DETAIL') }}{% endblock %}
 
 {% block content %}
-    <p>Please fix the following errors, then <a href="{{site.uri.public}}/install">reload</a>.</p>
+    <p>{{ translate('ERROR.CONFIG.RETURN', {url: "#{site.uri.public}/install"})|raw }}</a>.</p>
 
     {% autoescape false %}
     {% for message in messages %}
