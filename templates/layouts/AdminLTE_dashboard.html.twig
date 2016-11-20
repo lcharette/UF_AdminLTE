@@ -84,10 +84,8 @@
     <!-- Content Header (Page header) -->
     {% block content_header %}
     <section class="content-header">
-      <h1>
-        {{ block('page_title') }}<br />
-        <small>{{ block('page_description') }}</small>
-      </h1>
+      <h1>{% block header_title %}{{ block('page_title') }}{% endblock %}</h1>
+      <h1><small>{% block header_description %}{{ block('page_description') }}{% endblock %}</small></h1>
       {% block breadcrumb %}
         {% include 'components/breadcrumb.html.twig' %}
       {% endblock %}
