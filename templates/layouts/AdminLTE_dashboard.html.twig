@@ -25,47 +25,7 @@
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="{{ assets.url('assets://images/userProfilePlaceHolder.png') }}" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{current_user.user_name}}</span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="{{ assets.url('assets://images/userProfilePlaceHolder.png') }}" class="img-circle" alt="User Image">
-
-                <p>
-                  {{current_user.user_name}} - Web Developer
-                  <small>Member since Nov. 2012</small>
-                </p>
-              </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Friends</a>
-                  </div>
-                </div>
-                <!-- /.row -->
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="{{site.uri.public}}/account/settings" class="btn btn-default btn-flat">Settings</a>
-                </div>
-                <div class="pull-right">
-                  <a href="{{site.uri.public}}/account/logout" class="btn btn-default btn-flat">Sign out</a>
-                </div>
-              </li>
-            </ul>
-          </li>
+          {% include "components/AdminLTE/user-card.html.twig" %}
         </ul>
       </div>
     </nav>
@@ -87,12 +47,14 @@
       <h1>{% block header_title %}{{ block('page_title') }}{% endblock %}</h1>
       <h1><small>{% block header_description %}{{ block('page_description') }}{% endblock %}</small></h1>
       {% block breadcrumb %}
-        {% include 'components/breadcrumb.html.twig' %}
+        {% include 'components/breadcrumb.html.twig' with {page_title: block('page_title')} %}
       {% endblock %}
       <div id="alerts-main"></div>
     </section>
     {% endblock %}
-    {% block body_matter %}{% endblock %}
+    <section class="content">
+        {% block body_matter %}{% endblock %}
+    </section>
   </div>
   <!-- /.content-wrapper -->
 
@@ -302,4 +264,8 @@
 <!-- ./wrapper -->
 
 
+{% endblock %}
+
+{% block scripts_page_group %}
+    {{ assets.js('js/sb-admin-2') | raw }}
 {% endblock %}
