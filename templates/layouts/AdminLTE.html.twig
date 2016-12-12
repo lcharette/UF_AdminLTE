@@ -62,7 +62,7 @@
 
             <!-- Javascript configuration -->
             <script>
-            {% include "components/config.js.twig" %}
+                {% include "components/config.js.twig" %}
             </script>
 
             {% block scripts %}
@@ -70,6 +70,7 @@
                 {% block scripts_site %}
                     <!-- Load jQuery -->
                     <script src="//code.jquery.com/jquery-2.2.4.min.js" ></script>
+
                     <!-- Fallback if CDN is unavailable -->
                     <script>window.jQuery || document.write('<script src="{{ assets.url('assets://jquery-2.2.4/jquery.min.js', true) }}"><\/script>')</script>
 
@@ -83,11 +84,25 @@
 
                     <!-- jQuery UI 1.11.4 -->
                     <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
-                    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+
+                    {% block AdminLTE_CustomJS %}
                     <script>
+                      //Resolve conflict in jQuery UI tooltip with Bootstrap tooltip
                       $.widget.bridge('uibutton', $.ui.button);
-                      $('select').select2();
+
+                      // Apply select2
+                      $('select').select2({ minimumResultsForSearch: Infinity });
+
+                      // Apply iCheck
+                      $(function() {
+                        $('input').iCheck({
+                          checkboxClass: 'icheckbox_square-blue',
+                          radioClass: 'iradio_square-blue',
+                          increaseArea: '20%' // optional
+                        });
+                      });
                     </script>
+                    {% endblock %}
 
                 {% endblock %}
 
@@ -103,13 +118,13 @@
 
                 {# Override this block to alter UfAlerts. #}
                 {% block scripts_UFAlert %}
-                <!-- UFAlert -->
-                <script>
-                    // Fetch and render any alerts on the login panel
-                    // This is needed, for example, when we are redirected from another page.
-                    $("#alerts-main").ufAlerts();
-                    $("#alerts-main").ufAlerts('fetch').ufAlerts('render');
-                </script>
+                    <!-- UFAlert -->
+                    <script>
+                        // Fetch and render any alerts on the login panel
+                        // This is needed, for example, when we are redirected from another page.
+                        $("#alerts-main").ufAlerts();
+                        $("#alerts-main").ufAlerts('fetch').ufAlerts('render');
+                    </script>
                 {% endblock %}
             {% endblock %}
 

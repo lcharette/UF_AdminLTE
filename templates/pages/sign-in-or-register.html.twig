@@ -5,11 +5,6 @@
 
 {% block page_description %}{{translate('LOGIN.DESCRIPTION', {'site_name': site.title })}}{% endblock %}
 
-{% block stylesheets_page_group %}
-    <!-- Page-group-specific CSS asset bundle -->
-    {{ assets.css('css/iCheck') | raw }}
-{% endblock %}
-
 {% block body_attributes %}
     class="hold-transition login-page"
 {% endblock %}
@@ -71,21 +66,7 @@
 {% block scripts_page %}
     <!-- Include validation rules -->
     <script>
-    {% include "components/page.js.twig" %}
-    </script>
-
-    <!-- Include page-specific JS -->
-    {{ assets.js('js/iCheck') | raw }}
-
-    <script>
-        $(function() {
-            $('input').iCheck({
-              checkboxClass: 'icheckbox_square-blue',
-              radioClass: 'iradio_square-blue',
-              increaseArea: '20%' // optional
-            });
-        });
-
+        {% include "components/page.js.twig" %}
 
         $("#sign-in").ufForm({
             validators: page.validators.login,

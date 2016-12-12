@@ -46,13 +46,16 @@
   <!-- /.modal-dialog -->
 </div>
 
-{% use 'AdminLTE/iCheck.twig' %}
-{% use 'AdminLTE/select2.twig' %}
-
-{% block stylesheets_page %}
-    {{ parent() }}
-{% endblock %}
-
 {% block scripts_page %}
-    {{ parent() }}
+    <!-- Need to reload and reaply those since we're in modal -->
+    <script>
+        $(function() {
+            $('#{{box_id}}').iCheck({
+              checkboxClass: 'icheckbox_square-blue',
+              radioClass: 'iradio_square-blue',
+              increaseArea: '20%' // optional
+            });
+            $('select').select2({ minimumResultsForSearch: Infinity });
+        });
+    </script>
 {% endblock %}

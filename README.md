@@ -1,21 +1,29 @@
 # UF_AdminTLE
-AdminLTE sprinkle/theme for Userfrosting V4 https://almsaeedstudio.com
+AdminLTE sprinkle/theme for Userfrosting V4. Based on the theme from Almsaeedstudio (https://almsaeedstudio.com).
 
 ## Install
+### Clone Sprinkle as Submodule
 `cd` into the sprinkle directory of UserFrosting and clone as submodule:
 ```
 git submodule add git@github.com:lcharette/UF_AdminLTE.git AdminLTE
 ```
 
-Edit UserFrosting `public/index.php` file and add `AdminLTE` to the sprinkle list.
+### Update composer
+From the UserFrosting `/app` folder, run `composer update`
 
-## bundle.config.json
+### Edit index.php
+Edit UserFrosting `public/index.php` file and add `AdminLTE` to the sprinkle list to enable it.
+
+### Add the js bundle
+Edit the `build/bundle.config.json` and add this at the end
 ```
     "css/AdminLTE": {
         "styles": [
             "css/AdminLTE.min.css",
             "css/skins/_all-skins.min.css",
-            "vendor/select2/select2.min.css"
+            "css/Select2-custom.css",
+            "vendor/select2/select2.min.css",
+            "vendor/iCheck/square/_all.css"
         ],
         "options": {
             "result": {
@@ -37,23 +45,13 @@ Edit UserFrosting `public/index.php` file and add `AdminLTE` to the sprinkle lis
             }
         }
     },
-    "css/iCheck": {
-        "styles": [
-            "vendor/iCheck/square/blue.css"
-        ],
-        "options": {
-            "result": {
-                "type": {
-                  "styles": "plain"
-                }
-            }
-        }
-    },
     "js/AdminLTE": {
         "scripts": [
             "js/app.min.js",
             "js/userfrosting.min.js",
-            "vendor/select2/select2.full.min.js"
+            "vendor/select2/select2.full.min.js",
+            "vendor/slimScroll/jquery.slimscroll.min.js",
+            "vendor/iCheck/icheck.min.js"
         ],
         "options": {
             "result": {
@@ -73,18 +71,6 @@ Edit UserFrosting `public/index.php` file and add `AdminLTE` to the sprinkle lis
             "vendor/chartjs/Chart.min.js",
             "js/pages/dashboard2.js",
             "js/demo.js"
-        ],
-        "options": {
-            "result": {
-                "type": {
-                  "styles": "plain"
-                }
-            }
-        }
-    },
-    "js/iCheck": {
-        "scripts": [
-            "vendor/iCheck/icheck.min.js"
         ],
         "options": {
             "result": {
