@@ -1,24 +1,23 @@
 {% extends "layouts/AdminLTE_dashboard.html.twig" %}
 
-{% block stylesheets_page %}
-{% endblock %}
-
-{# Overrides blocks in head of base template #}
 {% block page_title %}{{ translate('SITE.CONFIG.MANAGER') }}{% endblock %}
-
 {% block page_description %}{{ translate('SITE.CONFIG.PAGEDESC') }}{% endblock %}
 
 {% block body_matter %}
     <div class="row">
-        <div class="col-lg-12" id="alerts-page" style="margin-bottom: 10px"></div>
-    </div>
-    <div class="row">
         <div class="col-lg-3">
-            <ul id="configMenu" class="nav nav-pills nav-stacked">
-            {% for schema in schemas %}
-                <li role="presentation" {% if loop.first %} class="active"{% endif %}><a href="#{{ schema.filename }}" data-target="configPanel-{{ schema.filename }}">{{ translate(schema.name) }}</a></li>
-            {% endfor %}
-            </ul>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Menu</h3>
+                </div>
+                <div class="panel-body">
+                    <ul id="configMenu" class="nav nav-pills nav-stacked">
+                    {% for schema in schemas %}
+                        <li role="presentation" {% if loop.first %} class="active"{% endif %}><a href="#configPanel-{{ schema.filename }}" data-target="configPanel-{{ schema.filename }}">{{ translate(schema.name) }}</a></li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="col-lg-9">
             {% for schema in schemas %}
@@ -57,13 +56,6 @@
                 }
             });
         });
-    </script>
-
-	<!-- UFAlert -->
-    <script>
-        // Fetch the ufAlerts
-        $("#alerts-page").ufAlerts();
-        $("#alerts-page").ufAlerts('fetch').ufAlerts('render');
     </script>
 
     <!-- Include form widgets JS -->
