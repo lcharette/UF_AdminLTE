@@ -1,9 +1,9 @@
-# UF_AdminTLE
+# UF_AdminLTE
 AdminLTE sprinkle/theme for Userfrosting V4. Based on the theme from Almsaeedstudio (https://almsaeedstudio.com).
 
 ## Install
 ### Clone Sprinkle as Submodule
-`cd` into the sprinkle directory of UserFrosting and clone as submodule:
+`cd` into the `/app/sprinkles` folder of UserFrosting and clone as submodule:
 ```
 git submodule add git@github.com:lcharette/UF_AdminLTE.git AdminLTE
 ```
