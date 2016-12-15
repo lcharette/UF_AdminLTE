@@ -3,7 +3,7 @@
     return [
         'site' => [
             'AdminLTE' =>  [
-                'skin' => "green"
+                'skin' => "blue"
             ]
         ]
     ];
