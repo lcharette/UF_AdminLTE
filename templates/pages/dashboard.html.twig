@@ -1,29 +1,15 @@
-{% extends "layouts/AdminLTE_dashboard.html.twig" %}
-
-{% set page_active = "home" %}
+{% extends "layouts/dashboard.html.twig" %}
 
 {# Overrides blocks in head of base template #}
-{% block page_title %}Home{% endblock %}
+{% block page_title %}Dashboard{% endblock %}
 
-{% block page_description %}Welcome to UserFrosting!{% endblock %}
+{% block page_description %}Version 2.0{% endblock %}
 
 {% block header %}
 
 {% endblock %}
 
 {% block body_matter %}
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Dashboard
-        <small>Version 2.0</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
-      </ol>
-    </section>
-
     <!-- Main content -->
     <section class="content">
       <!-- Info boxes -->
