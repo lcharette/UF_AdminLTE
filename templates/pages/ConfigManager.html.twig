@@ -30,7 +30,7 @@
                         {% if schema.desc %}<p>{{ translate(schema.desc) }}</p>{% endif %}
                         {% include "components/csrf.html.twig" %}
                         <div class="form-alerts"></div>
-                        {% include 'FormGenerator/FormGenerator.twig' with {fields: schema.fields} %}
+                        {% include 'FormGenerator/FormGenerator.html.twig' with {fields: schema.fields} %}
                     </div>
                     <div class="box-footer text-center">
                         <button type="reset" class="btn btn-default">{{translate('RESET')}}</button>
