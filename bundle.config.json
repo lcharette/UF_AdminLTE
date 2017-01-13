@@ -1,0 +1,37 @@
+{
+    "bundle": {
+        "css/AdminLTE": {
+            "styles": [
+                "css/AdminLTE.min.css",
+                "css/skins/_all-skins.min.css",
+                "vendor/icheck/skins/square/_all.css",
+                "vendor/select2/dist/css/select2.css",
+                "vendor/select2-bootstrap-theme/dist/select2-bootstrap.css"
+            ],
+            "options": {
+                "result": {
+                    "type": {
+                      "styles": "plain"
+                    }
+                }
+            }
+        },
+        "js/AdminLTE": {
+            "scripts": [
+                "js/app.min.js",
+                "js/userfrosting.min.js",
+                "vendor/jquery-slimscroll/jquery.slimscroll.min.js",
+                "vendor/icheck/icheck.min.js",
+                "vendor/fastclick/lib/fastclick.js",
+                "vendor/select2/dist/js/select2.full.js"
+            ],
+            "options": {
+                "result": {
+                    "type": {
+                      "styles": "plain"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "name": "core-assets",
+    "version": "0.0.1",
+    "homepage": "https://github.com/userfrosting",
+    "authors": [
+        "lcharette"
+    ],
+    "moduleType": [
+        "node"
+    ],
+    "license": "MIT",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "assets/vendor",
+        "examples",
+        "demo-resources",
+        "demo",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "icheck": "^1.0.1",
+        "jquery-slimscroll": "~1.3.8",
+        "fastclick": "^1.0.6"
+    },
+    "resolutions": {
+        "jquery": ">= 2.2.4",
+        "bootstrap": "3.x"
+    }
+}

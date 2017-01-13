@@ -107,11 +107,11 @@
             </div>
             <div class="text-left">
                 <p>
-                {{translate('TOS_AGREEMENT', {
-                    'site_title' : site.title,
-                    'link_attributes' : 'class="js-show-tos" href="#" data-toggle="modal"',
-                    'link_text' : '&TOS'
-                }) | raw}}
+                    {{translate('TOS_AGREEMENT', {
+                        'site_title' : site.title,
+                        'link_attributes' : 'class="js-show-tos" href="#" data-toggle="modal"',
+                        'link_text' : '&TOS'
+                    }) | raw}}
                 </p>
             </div>
             <div class="row">
@@ -138,6 +138,18 @@
     <!-- Include validation rules -->
     <script>
         {% include "components/page.js.twig" %}
+    </script>
+
+    <script>
+    site = $.extend(
+        true,               // deep extend
+        {
+            "registration" : {
+                "enabled" : "{{site.registration.enabled}}"
+            }
+        },
+        site
+    );
     </script>
 
     <!-- Include page-specific JS -->
