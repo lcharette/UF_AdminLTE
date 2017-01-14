@@ -16,4 +16,3 @@ From the UserFrosting `/build` folder, run `npm run uf-assets-install`
 
 ### Add AdminLTE to the sprinkle list
 Edit UserFrosting `app/sprinkles/sprinkles.json` file and add `AdminLTE` to the sprinkle list to enable it globaly.
-
