@@ -1,3 +1,6 @@
+# ~~ deprecated ~
+This theme is now the default UserFrosting theme! Yay !
+
 # UF_AdminLTE
 AdminLTE sprinkle/theme for Userfrosting V4. Based on the theme from Almsaeedstudio (https://almsaeedstudio.com).
 
